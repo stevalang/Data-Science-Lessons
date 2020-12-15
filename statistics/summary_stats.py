@@ -44,15 +44,6 @@ def five_number_summary(lst):
     return min_, q1, med, q3, max_
 
 
-a = [15,2,9,5,6, 7, 27, 12, 18, 19, 1]
-b = [6, 1, 4, 51, 7, 16, 10, 14, 46, 22, 24, 56, 48, 54]
-
-print(sorted(a))
-print(five_number_summary(a))
-print('\n')
-print(sorted(b))
-print(five_number_summary(b))
-
 
 
 
@@ -73,5 +64,26 @@ def detect_outliers(lst, outlier_coef=1.5):
     given a list of data points, 
     return a list containing the detectuble outliers
     '''
+
+    _, q1, _, q3, _ = five_number_summary(lst)
+
+    iqr_ = iqr(lst)
+
+    outliers = []
+
+    for num in lst:
+
+        if num < q1 - outlier_coef*iqr_:
+            outliers.append(num)
+
+        if num > q3 + outlier_coef * iqr_:
+            outliers.append(num)
+
+    return outliers
+
+
+house_values = [-6000000, 450000, 652234, 89000, 750000, 224968, 500000, 125000, 36000, 70000, 650000, 3400000, 560000]
+
+print(detect_outliers(house_values, outlier_coef=1.5))
 
     
