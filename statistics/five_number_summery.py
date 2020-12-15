@@ -1,17 +1,33 @@
 def five_number_summary(lst):
-    minn = min(lst)
+    min_ = min(lst)
+    max_ = max(lst)
+    med = median(lst)
     sorted_lst = sorted(lst)
-    median = 0
-    lower_half = len(lst)/2
-    upper_half = len(lst)/2 -1
+
+
 
     if len(lst) % 2 == 1:
-        median = lst[int(len(lst)/2)]
-    else:
-        median = sum(sorted_lst[low:high]) / 2
+        lower_half = sorted_lst[:int(len(sorted_lst) )]
 
-    maxx = max(lst)
-    q1 = sum(sorted_lst[:low]) / len(sorted_lst[:low])
-    q3 = sum(sorted_lst[low + 1]) / len(sorted_lst[low + 1])
 
-    return minn, q1, med, q3, maxx
+a = [15,2,9,5,6, 7, 27, 12, 18, 19, 1]
+b = [6, 1, 4, 51, 7, 16, 10, 14, 46, 22, 24, 56, 48, 54]
+
+print(sorted(a))
+print(five_number_summary(a))
+print('\n')
+print(sorted(b))
+print(five_number_summary(b))
+
+
+
+
+def iqr(lst):
+
+    '''
+    IQR ( Q3 - Q1)
+    '''
+
+    _, q1, _, q3, _ = five_number_summary(lst):
+
+    return q3 - q1

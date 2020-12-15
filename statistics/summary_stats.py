@@ -65,3 +65,13 @@ def iqr(lst):
     _, q1, _, q3, _ = five_number_summary(lst)
 
     return q3 - q1
+
+
+
+def detect_outliers(lst, outlier_coef=1.5):
+    '''
+    given a list of data points, 
+    return a list containing the detectuble outliers
+    '''
+
+    
