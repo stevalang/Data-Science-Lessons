@@ -15,6 +15,3 @@ def five_number_summary(lst):
     q3 = sum(sorted_lst[low + 1]) / len(sorted_lst[low + 1])
 
     return minn, q1, med, q3, maxx
-
-
-print(sorted(a))
