@@ -86,4 +86,40 @@ house_values = [-6000000, 450000, 652234, 89000, 750000, 224968, 500000, 125000,
 
 print(detect_outliers(house_values, outlier_coef=1.5))
 
+
+
+def variance(lst, sample=True):
     
+    
+    out = []
+
+    for num in lst:
+        out.append((num - mean(lst))**2)
+    
+    if sample:
+        return sum(out) / (len(lst) - 1)
+    return sum(out)/len(lst)
+
+
+print(variance(house_values))
+
+
+def remove_outliers (lst):
+
+    outliers = detect_outliers(lst)
+    output = []
+    
+    for num in lst:
+        if num not in outliers:
+            output.append(num)
+
+    return output
+ 
+
+
+def standard_diviation(lst):
+
+    return variance(lst) ** 0.5
+
+
+
